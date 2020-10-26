@@ -1,0 +1,76 @@
+#!/bin/bash
+
+# author: stackiller
+
+declare -a temas;
+temas_Dir="$HOME/.bash_themes";
+default_Xresources="$HOME/.bash_themes/default.theme";
+current_theme="$HOME/.bash_themes/current.theme";
+
+# cores.
+red="\e[38;5;160m"
+green="\e[38;5;84m"
+blue="\e[38;5;87m"
+yellow="\e[38;5;190m"
+pink="\e[38;5;198m"
+bold="\e[1m"
+reset="\e[0m"
+
+# alias para a função echo;
+function eco() {
+  str=$1;
+  if [[ -n $str ]]; then
+    echo -e $str;
+  fi;
+}
+
+# define o tema.
+function setTheme() {
+  temas_length=$((${#temas[@]} - 1));
+  
+  if [ $1 -eq 0 ] || [ $1 -lt 0 ] || [ $1 -gt $temas_length ]; then
+    showThemes;
+  else
+    eco "$bold$green"'Definindo o tema'"$reset => ${temas[$1]}";
+    xrdb -override $default_Xresources;
+    xrdb -override "$temas_Dir/${temas[$1]}";
+  fi;
+}
+
+# mostra os temas avaliados.
+function showThemes() {
+  i=0;
+  eco "$bold$green"'( Temas disponíveis )'"$reset";
+  for tema in ${temas[@]}; do
+    echo "$i => ${temas[$i]}";
+    i=$((i+1));
+  done;
+}
+
+# obtém os temas disponíveis.
+function getThemes() {
+  i=0;
+  for tema in $(ls $temas_Dir); do
+    temas[$i]=$tema;
+    i=$((i+1));
+  done;
+}
+
+# função main, like c ? xD
+function main() {
+  argc=${#@};
+  declare -i tema_index;
+  getThemes;
+  
+  if [ $argc -lt 1 ] || [ $argc -gt 1 ];
+  then
+    eco "$bold"'(._.): por favor, especifique somente um dos índices disponíveis abaixo:'"$reset";
+    showThemes;
+  else
+    tema_index=$1;
+    setTheme $tema_index;
+  fi;
+}
+
+# auto call;
+main $@;
