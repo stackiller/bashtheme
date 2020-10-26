@@ -1,0 +1,16 @@
+! fonte
+!URxvt.font:      xft:Hermit:style:Regular:size=12
+!URxvt.boldFont:  xft:Hermit:style:Bold:size=12
+
+! forma & estado
+URxvt.geometry:        80x15
+URxvt.internalBorder:  15
+URxvt.scrollBar:       false
+URxvt.saveLines:       512
+URxvt.cursorBlink:     true
+
+! extensões
+!urxvt.perl-ext: default,resize-font
+
+! profundidade
+!URxvt.depth: 32
