@@ -1,14 +1,15 @@
-### *Uma ferramenta que facilita a mudança de temas do bash. Temas disponíveis no site: terminal.sexy*.
+# Uma ferramenta que facilita a mudança de temas do bash.
 
+Os temas usados foram obtidos no site: terminal.sexy.
 Siga os passos abaixo para usar a ferramenta:
 
-## Configurando o ambiente
+## "Instalação"
 Forneça permissão de execução:
 ```sh
-$ chmod +x set_bashTheme
+$ chmod +x bashtheme
 ```
 
-Crie um diretório na home para a ferramenta:
+Crie um diretório na $HOME ( o diretório raiz do seu usuário ) para a ferramenta:
 ```sh
 $ mkdir ~/.tools
 ```
@@ -16,26 +17,27 @@ $ mkdir ~/.tools
 Mova o script para lá:
 
 ```sh
-$ mv set_bashThemes ~/.tools
+$ mv bashtheme ~/.tools
 ```
-Exporte o caminho do script, no arquivo '~/.bashrc':
 
+Defina no arquivo '~/.bashrc', o caminho do script, na
+variável PATH;
 ```sh
 export PATH=$PATH:$HOME/.tools
 ```
 
 ## Definindo os temas
 
-Crie um diretório para os temas ( existe um modelo nesse repositório ):
+Crie um diretório para os temas, na $home ( existe um modelo nesse repositório ):
 ```sh
 $ mkdir ~/.bash_themes
 ```
 
-Baixe os temas disponíveis no site terminal.sexy, e mova eles para o diretório '~/.bash_themes'.
+Baixe os temas disponíveis no site terminal.sexy, e mova eles para o diretório criado anteriormente: '~/.bash_themes'.
 
 ## Usando a ferramenta
 
-Pronto agora é só invocar o script, as opções de temas disponíveis irão aparecer de acordo aos temas que estão no seu diretório ~/.bash_themes.
+Pronto agora é só invocar a ferramenta, as opções de temas disponíveis serão retornadas de acordo aos temas que estão no seu diretório ~/.bash_themes.
 
 ```sh
 (._.): por favor, especifique somente um dos índices disponíveis abaixo: 
@@ -65,12 +67,10 @@ Pronto, tema definido !!!
 
 Só mais uma observação:
 
-Dados como tipo de fonte, tamanho, formato do terminal etc, talvez queiram ser mantidos entre os diferentes temas.
-Para isso, mantenha um arquivo de configurações padrão, dentro do diretório '~/.bash_themes', nomeado 
+Tipos de fonte, tamanho, configurações do terminal etc, talvez queiram ser mantidas entre os diferentes temas.
+Para isso, mantenha um arquivo de configurações padrão, dentro do diretório '~/.bash_themes', nomeado:
 
 > *default.theme*
 
- ou como desejar ( porém será necessário mudar o nome dentro do script ).
-
-Agora acabou !!! bom proveito :)
+bom proveito :)
  
