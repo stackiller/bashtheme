@@ -82,5 +82,3 @@ Para isso, mantenha um arquivo de configurações padrão, dentro do diretório 
 > *default.theme*
 
 É  isso, bom proveito :)
- 
-n
