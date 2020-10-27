@@ -1,6 +1,6 @@
 # Uma ferramenta que facilita a mudança de temas do bash.
 
-Os temas usados foram obtidos no site: ***terminal.sexy.***
+Os temas usados foram obtidos no site: ***https://terminal.sexy.***
 
 ## Instalação
 
@@ -47,7 +47,7 @@ Baixe os temas disponíveis no site: *terminal.sexy*, e mova eles para o diretó
 ## Configurações padrão
 
 Configurações de fonte, do terminal, etc, possivelmente queiram ser mantidas entre os diferentes temas.
-Para isso, mantenha um arquivo especificando essas definições dentro do diretório '.***bash_themes***, nomeado:
+Para isso, mantenha um arquivo especificando essas definições dentro do diretório **.bash_themes**, nomeado:
 
 > '***default.theme***'
 
@@ -88,7 +88,7 @@ tema atual.
 
 Para isso só precisamos dizer ao servidor X, que sempre que ele iniciar,  o mesmo deve carregar esse arquivo.
 
-Para isso abrimos o arquivo '.xinitrc', e acresentamos essas linhas.
+Para isso abrimos o arquivo **.xinitrc**, e acresentamos essas linhas.
 
 ***~/.xinitrc***
 ```sh
