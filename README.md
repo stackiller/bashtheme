@@ -1,4 +1,4 @@
- # Uma ferramenta que facilita a mudança de temas do bash.
+# Uma ferramenta que facilita a mudança de temas do bash.
 
 Os temas usados foram obtidos no site: ***terminal.sexy.***
 
@@ -9,7 +9,7 @@ Antes de tudo, clone o repositório .__.":
 $ git clone https://github.com/stackiller/bashtheme.git
 ```
 
-Entre o diretório do repositório:
+Entre no diretório do repositório:
 ```sh
 $ cd bashtheme
 ```
@@ -35,7 +35,7 @@ Defina no arquivo .bashrc, o caminho do script, na variável PATH;
 export PATH=$PATH:$HOME/.tools
 ```
 
-## Definindo os temas
+### Criando o diretório de temas
 
 Crie um diretório para os temas, na raiz de seu usuário ( existe um modelo nesse repositório ):
 ```sh
@@ -44,7 +44,14 @@ $ mkdir ~/.bash_themes
 
 Baixe os temas disponíveis no site: *terminal.sexy*, e mova eles para o diretório criado anteriormente.
 
-## Usando a ferramenta
+## Configurações padrão
+
+Configurações de fonte, do terminal, etc, possivelmente queiram ser mantidas entre os diferentes temas.
+Para isso, mantenha um arquivo especificando essas definições dentro do diretório '.***bash_themes***, nomeado:
+
+> '***default.theme***'
+
+### Definindo temas
 
 Pronto agora é só invocar a ferramenta, as opções de temas disponíveis serão retornadas de acordo aos temas que estão no seu diretório .bash_themes.
 
@@ -72,13 +79,27 @@ $ ./set_bashTheme 1
 Definindo o tema => atelierlakeside.dark.theme
 ```
 
-Pronto, tema definido !!!
+## Fixando as mudanças de tema
 
-**Só mais uma observação:**
+Mesmo tendo definido o tema, as mudanças não são permantes, isso porque o  servidor X, sempre que reiniciado, o mesmo busca por um arquivo de configurações ( recursos ) a  serem usadas naquela sessão.
 
-Tipos de fonte e tamanho, configurações do terminal etc, talvez queiram ser mantidas entre os diferentes temas.
-Para isso, mantenha um arquivo de configurações padrão, dentro do diretório '~/.bash_themes', nomeado:
+Para tornar as mudanças fixas, um arquivo chamado current.theme é criado no diretório de temas, sempre que um novo tema é definido, o mesmo contém as configurações do
+tema atual.
 
-> *default.theme*
+Para isso só precisamos dizer ao servidor X, que sempre que ele iniciar,  o mesmo deve carregar esse arquivo.
 
-É  isso, bom proveito :)
+Para isso abrimos o arquivo '.xinitrc', e acresentamos essas linhas.
+
+***~/.xinitrc***
+```sh
+# variável que indica o localização do tema atual.
+userX_resources="$HOME/.bash_themes/current.theme"
+
+# checa pela presença do arquivo e carrega ele.
+[[ -f "$userX_resources" ]] && xrdb -merge "$userX_resources";
+
+```
+
+Fique tranquilo, agora é só baixar e testar diferentes temas, que sempre que o sistema for reiniciado, tudo estará ok.
+
+Bom proveito :)
