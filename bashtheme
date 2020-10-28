@@ -28,7 +28,7 @@ function eco() {
 function setTheme() {
   temas_length=$((${#temas[@]} - 1));
   
-  if [ $1 -eq 0 ] || [ $1 -lt 0 ] || [ $1 -gt $temas_length ]; then
+  if [ $1 -lt 0 ] || [ $1 -gt $temas_length ]; then
     showThemes;
   else
     eco "${bold}${green}Definindo o tema${reset} => ${temas[$1]}";
