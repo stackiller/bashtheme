@@ -31,18 +31,19 @@ function setTheme() {
   if [ $1 -eq 0 ] || [ $1 -lt 0 ] || [ $1 -gt $temas_length ]; then
     showThemes;
   else
-    eco "$bold$green"'Definindo o tema'"$reset => ${temas[$1]}";
+    eco "${bold}${green}Definindo o tema${reset} => ${temas[$1]}";
     xrdb -override $default_Xresources;
     xrdb -override "$temas_Dir/${temas[$1]}";
+    xrdb -query > "$current_theme";
   fi;
 }
 
 # mostra os temas avaliados.
 function showThemes() {
   i=0;
-  eco "$bold$green"'( Temas disponíveis )'"$reset";
+  eco "${bold}Temas disponíveis:${reset}";
   for tema in ${temas[@]}; do
-    echo "$i => ${temas[$i]}";
+    echo "|_ $i => ${temas[$i]}";
     i=$((i+1));
   done;
 }
@@ -64,7 +65,7 @@ function main() {
   
   if [ $argc -lt 1 ] || [ $argc -gt 1 ];
   then
-    eco "$bold"'(._.): por favor, especifique somente um dos índices disponíveis abaixo:'"$reset";
+    eco "${bold}Por favor, especifique somente um dos índices disponíveis abaixo:${reset}";
     showThemes;
   else
     tema_index=$1;
