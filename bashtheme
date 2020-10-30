@@ -32,8 +32,8 @@ function setTheme() {
     showThemes;
   else
     eco "${bold}${green}Definindo o tema${reset} => ${temas[$1]}";
-    xrdb -override $default_Xresources;
-    xrdb -override "$temas_Dir/${temas[$1]}";
+    xrdb -merge $default_Xresources;
+    xrdb -merge "$temas_Dir/${temas[$1]}";
     xrdb -query > "$current_theme";
   fi;
 }
@@ -52,8 +52,10 @@ function showThemes() {
 function getThemes() {
   i=0;
   for tema in $(ls $temas_Dir); do
-    temas[$i]=$tema;
-    i=$((i+1));
+    if [[ ! ( $tema = "default.theme" || $tema = "current.theme" ) ]]; then
+      temas[$i]="$tema";
+      i=$((i+1));
+    fi;
   done;
 }
 
