@@ -34,7 +34,8 @@ function setTheme() {
     eco "${bold}${green}Definindo o tema${reset} => ${temas[$1]}";
     xrdb -merge $default_Xresources;
     xrdb -merge "$temas_Dir/${temas[$1]}";
-    xrdb -query > "$current_theme";
+    echo "# ${temas[$1]}" > "$current_theme";
+    xrdb -query >> "$current_theme";
   fi;
 }
 
