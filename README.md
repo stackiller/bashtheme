@@ -3,33 +3,33 @@ Os temas usados foram obtidos no site: **[terminal.sexy](https://terminal.sexy)*
 
 ## Instalação
 
-Antes de tudo, clone o repositório .__.":
-```$ git clone https://github.com/stackiller/bashtheme.git```
-
-Entre no diretório do repositório:
+Após clonar o repositório, forneça permissão de execução:
 ```sh
-$ cd bashtheme
+$ chmod +x bashtheme
 ```
 
-Forneça permissão de execução:
-```sh $ chmod +x bashtheme ```
-
-Crie um diretório para a ferramenta, na raiz de seu usuário:
+Crie um diretório para a ferramenta na raiz de seu usuário:
 ```sh
 $ mkdir ~/.tools
 ```
 
 Mova o script para lá:
 
-```sh $ mv bashtheme ~/.tools ```
+```sh
+$ mv bashtheme ~/.tools
+```
 
-Defina no arquivo .bashrc, o caminho do script, na variável PATH;
-```sh export PATH=$PATH:$HOME/.tools ```
+Defina na variável PATH o caminho da ferramenta:
+```sh
+export PATH=$PATH:$HOME/.tools
+```
 
 ### Criando o diretório de temas
 
 Crie um diretório para os temas, na raiz de seu usuário ( existe um modelo nesse repositório ):
-```sh $ mkdir ~/.bash_themes ```
+```sh
+$ mkdir ~/.bash_themes
+```
 
 Baixe os temas disponíveis no site: *terminal.sexy*, e mova eles para o diretório criado anteriormente.
 
@@ -62,7 +62,7 @@ Temas disponíveis
 
 Para definir um tema, é só chamar o script e passar o índice correspondente ao tema escolhido:
 ```sh
-$ ./set_bashTheme 1
+$ ./bashtheme 1
 Definindo o tema => atelierlakeside.dark.theme
 ```
 
