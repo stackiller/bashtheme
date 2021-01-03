@@ -1,4 +1,4 @@
-## Defina facilmente novos temas no bash.
+# Defina facilmente novos temas no bash.
 Os temas usados foram obtidos no site: **[terminal.sexy](https://terminal.sexy)**
 
 ## Instalação
